@@ -18,7 +18,7 @@ services:
       - BLOCK_SUBSCRIPTION
       - USE_LOCAL_RPC=TRUE
     networks:
-      - entropyx
+      - dafidao-entropyx
     restart: always
 
   dafidao-mainnet-fork:
@@ -29,5 +29,5 @@ services:
       - WEB3_INFURA_PROJECT_ID
       - ETHERSCAN_TOKEN
     networks:
-      - entropyx
+      - dafidao-entropyx
     restart: always
