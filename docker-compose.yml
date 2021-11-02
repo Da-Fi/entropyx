@@ -1,0 +1,33 @@
+version: '3.7'
+
+networks:
+  dafidao-entropyx:
+
+services:
+  entropyx-dev:
+    build: .
+    ports:
+      - 3000:3000
+    environment:
+      - WEB3_PROVIDER_HTTPS
+      - WEB3_PROVIDER_WSS
+      - BLOCKNATIVE_DAPP_ID
+      - ETHERSCAN_APIKEY
+      - PORTIS_APIKEY
+      - FORTMATIC_APIKEY
+      - BLOCK_SUBSCRIPTION
+      - USE_LOCAL_RPC=TRUE
+    networks:
+      - entropyx
+    restart: always
+
+  dafidao-mainnet-fork:
+    image: dafidao-mainnet-fork
+    ports:
+      - 8545:8545
+    environment:
+      - WEB3_INFURA_PROJECT_ID
+      - ETHERSCAN_TOKEN
+    networks:
+      - entropyx
+    restart: always

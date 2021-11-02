@@ -1,0 +1,395 @@
+import React, { useState, useEffect } from 'react';
+import styled, { css } from 'styled-components';
+import tw from 'twin.macro';
+import { useSelector } from 'react-redux';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import CloseIcon from '@material-ui/icons/Close';
+import MenuIcon from '@material-ui/icons/Menu';
+import { selectLocation } from 'containers/App/selectors';
+import ConnectButton from 'components/ConnectButton';
+import Text from 'components/Text';
+import Box from 'components/Box';
+import Icon from 'components/Icon';
+import { Link } from 'react-router-dom';
+import DafiDaoLogo from 'images/dafidao-logo.svg';
+import ButtonFilled from 'components/ButtonFilled';
+import MobileMenu from './MobileMenu';
+import { menuLinks, menuLinksMeta } from './menuLinks';
+
+const StyledIcon = styled(Icon)`
+  width: 19px;
+  &:hover {
+    filter: brightness(120%);
+  }
+`;
+
+const StyledFlyingMenu = styled(Box)`
+  bottom: 0;
+  transform: translateY(100%);
+`;
+
+const StyledItem = styled.li`
+  display: flex;
+  align-items: center;
+
+  .beta-button {
+    height: 26px;
+    font-size: 12px;
+    font-weight: 500;
+    border-radius: 8px;
+    padding: 5px;
+  }
+`;
+
+const ItemStyle = css`
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  font-size: 14px;
+  text-transform: capitalize;
+
+  font-weight: ${(props) => (props.isActive ? '700' : '400')};
+  color: ${(props) => (props.colored ? '#4B9FFF' : '#fff')};
+  text-decoration: ${({ selected }) =>
+    selected ? 'underline solid #E5E5E5 5px' : 'none'};
+  text-underline-offset: ${({ selected }) => (selected ? '10px' : null)};
+  :hover {
+    color: ${(props) => (props.hoverable ? '#4B9FFF' : '#fff')};
+    font-weight: ${(props) => (props.hoverable ? '700' : '400')};
+  }
+  :focus {
+    outline: none;
+  }
+
+  ::before {
+    display: block;
+    content: attr(data-text);
+    font-weight: bold;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+  }
+
+  [title]:hover::after {
+    position: absolute;
+    top: -100%;
+    left: 0;
+  }
+`;
+
+const StyledLink = styled.a`
+  ${ItemStyle}
+`;
+
+const LinkWrapper = styled(Link)`
+  ${ItemStyle}
+`;
+
+const StyledNav = styled(Box)`
+  background-color: ${(props) => props.theme.background};
+  box-shadow: ${(props) =>
+    props.colored ? '0px 4px 5px 2px rgba(0, 0, 0, 0.17)' : null};
+  transition: box-shadow 0.3s ease-in-out;
+`;
+
+const ItemContainer = styled(Box)`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  color: ${(props) => props.theme.surface};
+  background-color: #fff;
+  border-radius: 3px;
+  :hover {
+    background-color: rgba(196, 196, 196, 0.2);
+  }
+  width: 100%;
+`;
+
+const BoxedItems = styled(Box)`
+  :after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+    border-radius: 4px;
+    transform: rotate(45deg);
+
+    left: ${(props) => props.pointer};
+    top: 2px;
+    z-index: -1;
+  }
+`;
+
+const StyledNavbar = styled.nav`
+  display: ${({ visible }) => (visible ? 'flex' : 'none')};
+  flex: 1 1 0%;
+  -webkit-box-pack: end;
+  justify-content: flex-end;
+  -webkit-box-align: center;
+  align-items: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-right: 1.25rem;
+
+  > * {
+    --tw-space-x-reverse: 0;
+    margin-right: calc(1.25rem * var(--tw-space-x-reverse));
+    margin-left: calc(1.25rem * calc(1 - var(--tw-space-x-reverse)));
+  }
+`;
+
+const StyledNavbarMobile = styled.nav`
+  display: ${({ visible }) => (visible ? 'flex' : 'none')};
+`;
+
+const FlyingMenu = ({ isActive, links, meta }) => (
+  <StyledFlyingMenu
+    position="absolute"
+    pt={0.8}
+    zIndex={10}
+    left={`-${meta.centerPosition}px`}
+    css={[
+      isActive
+        ? tw`opacity-100 animate-flyingMenuEntering`
+        : tw`hidden opacity-0`,
+    ]}
+  >
+    <BoxedItems
+      position="relative"
+      bg="white"
+      borderRadius={4}
+      p={4}
+      width={meta.menuWidth || 184}
+      pointer={`${meta.pointer}px` || '67.5px'}
+      mt={3}
+    >
+      {links.map((link) =>
+        link.href.includes('http') ? (
+          <a
+            key={link.href}
+            href={link.href}
+            target="_blank"
+            tw="flex items-start no-underline"
+          >
+            <ItemContainer py={3} px={5}>
+              <Text small>{link.title}</Text>
+              <Icon type="arrowRight" />
+            </ItemContainer>
+            {/* <svg
+                css={[link.href[0] !== '/' && tw`inline-block`]}
+                tw="hidden text-white h-4 self-start"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                />
+              </svg>
+              {link.description && (
+                <p tw="mt-1 text-sm text-white font-sans">{link.description}</p>
+              )} */}
+          </a>
+        ) : (
+          <Link
+            key={link.href}
+            to={link.href}
+            tw="flex items-start no-underline"
+          >
+            <ItemContainer py={3} px={5}>
+              <Text small>{link.title}</Text>
+            </ItemContainer>
+            {/* <svg
+                css={[link.href[0] !== '/' && tw`inline-block`]}
+                tw="hidden text-white h-4 self-start"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                />
+              </svg>
+              {link.description && (
+                <p tw="mt-1 text-sm text-white font-sans">{link.description}</p>
+              )} */}
+          </Link>
+        ),
+      )}
+    </BoxedItems>
+  </StyledFlyingMenu>
+);
+
+const MenuItem = ({
+  text,
+  isActive,
+  setIsActive,
+  links,
+  icon,
+  selected,
+  type,
+}) => {
+  let label = text;
+  if (icon) {
+    label = <StyledIcon type={icon} />;
+  }
+  if (type === 'button') {
+    label = <ButtonFilled className="beta-button">V3 BETA</ButtonFilled>;
+  }
+
+  if (Array.isArray(links)) {
+    let isSelected = false;
+    if (
+      links
+        .map(({ href }) => href.toLowerCase())
+        .includes(selected.toLowerCase())
+    ) {
+      isSelected = true;
+    }
+
+    return (
+      <StyledItem tw="relative" onMouseLeave={() => setIsActive(false)}>
+        <StyledLink
+          data-text={text}
+          onClick={() => {
+            if (Array.isArray(links)) setIsActive(text);
+          }}
+          onMouseEnter={() => {
+            if (Array.isArray(links)) setIsActive(text);
+          }}
+          onKeyPress={() => {
+            if (Array.isArray(links)) setIsActive(text);
+          }}
+          tabIndex="0"
+          selected={isSelected}
+          colored={text === isActive}
+          hoverable={1}
+          isActive={text === isActive}
+        >
+          {label}
+        </StyledLink>
+        <FlyingMenu
+          isActive={text === isActive}
+          links={links}
+          meta={menuLinksMeta[text]}
+        />
+      </StyledItem>
+    );
+  }
+
+  return links.href.includes('http') ? (
+    <StyledItem tw="relative">
+      <StyledLink
+        data-text={text}
+        href={`${links.href}`}
+        role="button"
+        tabIndex="0"
+        target="_blank"
+        tw="no-underline"
+        hoverable={1}
+      >
+        {label}
+      </StyledLink>
+    </StyledItem>
+  ) : (
+    <StyledItem tw="relative">
+      <LinkWrapper
+        data-text={text}
+        to={`${links.href}`}
+        selected={links.href.toLowerCase() === selected.toLowerCase()}
+        hoverable={1}
+      >
+        {label}
+      </LinkWrapper>
+    </StyledItem>
+  );
+};
+
+const Navbar = () => {
+  const isScreenMd = useMediaQuery('(min-width:960px)');
+  const [isActive, setIsActive] = React.useState(undefined);
+  const [isMobileOpen, setIsMobileOpen] = React.useState(false);
+  const location = useSelector(selectLocation());
+  const { pathname } = location;
+
+  const [isScrollTop, setIsScrollTop] = useState(true);
+
+  const listener = () => {
+    const app = document.getElementById('app');
+    setIsScrollTop(app.scrollTop === 0);
+  };
+
+  useEffect(() => {
+    const app = document.getElementById('app');
+    app.addEventListener('scroll', listener);
+    return () => {
+      app.removeEventListener('scroll', listener);
+    };
+  }, []);
+
+  return (
+    <StyledNav
+      position="sticky"
+      display="flex"
+      justifyContent="space-between"
+      alignItems="center"
+      p={6}
+      top={0}
+      zIndex={20}
+      colored={!isScrollTop}
+      height={isScreenMd ? 80 : 66}
+    >
+      <div tw="flex self-center">
+        <Link to="/" tw="no-underline" onClick={() => setIsMobileOpen(false)}>
+          <img src={DafiDaoLogo} alt="DafiDao" width={isScreenMd ? '150' : '110'} />
+        </Link>
+      </div>
+
+      {isMobileOpen && <MobileMenu close={() => setIsMobileOpen(false)} />}
+
+      <StyledNavbar visible={isScreenMd}>
+        {Object.keys(menuLinks).map((menuLink) => {
+          const links = menuLinks[menuLink];
+          return (
+            <MenuItem
+              key={menuLink}
+              setIsActive={setIsActive}
+              isActive={isActive}
+              text={menuLink}
+              links={links}
+              icon={links.icon}
+              selected={pathname}
+              type={links.type}
+            />
+          );
+        })}
+      </StyledNavbar>
+
+      <StyledNavbarMobile visible={isScreenMd}>
+        <ConnectButton />
+      </StyledNavbarMobile>
+
+      {isMobileOpen && (
+        <div tw="flex flex-1 justify-end -mr-1">
+          <CloseIcon fontSize="large" onClick={() => setIsMobileOpen(false)} />
+        </div>
+      )}
+
+      {!isMobileOpen && !isScreenMd && (
+        <MenuIcon onClick={() => setIsMobileOpen(true)} />
+      )}
+    </StyledNav>
+  );
+};
+
+export { Navbar };
