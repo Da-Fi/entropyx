@@ -1,4 +1,4 @@
-version: '3.7'
+version: '3.9'
 
 networks:
   dafidao-entropyx:
@@ -7,7 +7,7 @@ services:
   entropyx-dev:
     build: .
     ports:
-      - 127.0.0.1.3000:3000
+      - "0.0.0.0:3000:3000"
     environment:
       - WEB3_PROVIDER_HTTPS
       - WEB3_PROVIDER_WSS
@@ -24,7 +24,7 @@ services:
   dafidao-mainnet-fork:
     image: dafidao-mainnet-fork
     ports:
-      - 8545:8545
+      - "0.0.0.0:8545:8545"
     environment:
       - WEB3_INFURA_PROJECT_ID
       - ETHERSCAN_TOKEN
