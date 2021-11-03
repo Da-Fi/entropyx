@@ -75,6 +75,7 @@
     ]
   },
   "resolutions": {
+    "@babel/core": "^7.0.0",
     "babel-core": "7.0.0-bridge.0"
   },
   "husky": {
@@ -155,7 +156,7 @@
     "@babel/plugin-transform-react-constant-elements": "7.2.0",
     "@babel/plugin-transform-react-inline-elements": "7.2.0",
     "@babel/preset-env": "7.4.3",
-    "@babel/preset-react": "7.0.0",
+    "@babel/preset-react": "7.4.3",
     "@babel/register": "7.4.0",
     "@commitlint/config-conventional": "^11.0.0",
     "@storybook/addon-actions": "6.1.11",
@@ -174,7 +175,7 @@
     "circular-dependency-plugin": "5.0.2",
     "commitlint": "^11.0.0",
     "compare-versions": "3.4.0",
-    "compression-webpack-plugin": "2.0.0",
+    "compression-webpack-plugin": "9.0.0",
     "coveralls": "3.0.3",
     "css-loader": "^5.0.1",
     "dotenv-webpack": "^6.0.0",
