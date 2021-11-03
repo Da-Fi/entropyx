@@ -7,7 +7,7 @@ services:
   entropyx-dev:
     build: .
     ports:
-      - "127.0.0.1.3000:3000"
+      - 127.0.0.1.3000:3000
     environment:
       - WEB3_PROVIDER_HTTPS
       - WEB3_PROVIDER_WSS
