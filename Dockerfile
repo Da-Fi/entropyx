@@ -1,4 +1,4 @@
-FROM node:erbium
+FROM node:fermium
 
 RUN mkdir -p /app/entropyx
 WORKDIR /app/entropyx
