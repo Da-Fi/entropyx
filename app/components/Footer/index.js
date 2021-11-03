@@ -82,7 +82,7 @@ function Footer() {
       <FooterInner>
         <Top>
           <TopLeft>
-            <Logo src={DafiDaoLogo} alt="Da-Fi DAO" />
+            <Logo src={DafiDaoLogo} alt="dafidaologo" />
           </TopLeft>
           <TopRight>
             <a href="https://twitter.com/DaFi_DAO" target="_blank">

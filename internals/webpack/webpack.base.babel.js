@@ -8,8 +8,8 @@ const Dotenv = require('dotenv-webpack');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 
 const ManifestPlugin = new WebpackPwaManifest({
-  name: 'Da-Fi DAO Entropyx',
-  short_name: 'Da-Fi DAO Entropyx',
+  name: 'entropyx',
+  short_name: 'entropyx',
   description: 'Put your assets to work.',
   background_color: '#fafafa',
   theme_color: '#b1624d',
