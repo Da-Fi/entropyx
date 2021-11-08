@@ -32,28 +32,28 @@ export const menuLinks = {
        title: 'yVaults',
        description: 'Deposit and earn',
      }, 
-  //   {
-  //     href: '/cover',
-  //     title: 'yCover',
-  //     description: 'Cover smart contract risk',
-  //   },
-  //   {
-  //     href: 'https://da-fi.io/earn',
-  //     title: 'yUSD',
-  //     description: 'Stable coin index',
-  //   },
-  //   {
-  //     href: 'https://da-fi.io/zap',
-  //     title: 'Zap',
-  //     description: 'Zap in and out of the pools',
-  //   },
-  // ],
+     {
+       href: '/cover',
+       title: 'yCover',
+       description: 'Cover smart contract risk',
+     },
+      {
+       href: 'https://da-fi.io/earn',
+       title: 'yUSD',
+      description: 'Stable coin index',
+    },
+     {
+       href: 'https://da-fi.io/zap',
+       title: 'Zap',
+       description: 'Zap in and out of the pools',
+     },
+   ],
   // stats: {
   //   href: 'https://da-fi.io/stats',
   //   title: 'Stats',
   //   description: "Get a quick glance at how dafidao's vaults are performing",
   // },
-  gov: [
+  gov:[
     {
       href: 'https://da-fi.com/',
       title: 'Forum',
