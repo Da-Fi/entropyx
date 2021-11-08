@@ -16,7 +16,7 @@ services:
       - PORTIS_APIKEY
       - FORTMATIC_APIKEY
       - BLOCK_SUBSCRIPTION
-      - USE_LOCAL_RPC=TRUE
+      - USE_LOCAL_RPC=false
     networks:
       - dafidao-entropyx
     restart: always
