@@ -1,8 +1,8 @@
 export const common = {
-  dafidaoBlue: '#0151f0',
+  dafidaoBlue: '#3FBFBF',
   white: '#fff',
   black: '#000',
-  offBlack: '#363537',
+  offBlack: '#363640',
   offWhite: '#D8D8D8',
 };
 

@@ -1,5 +1,5 @@
 <span>
-    <img align="right" src="app/images/icon-512x512.png" height="100" />
+    <img align="right" src="app/images/icon-transparent_color_text.png" height="100" />
 </span>
 
 # Da-Fi.entropyx

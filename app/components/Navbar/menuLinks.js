@@ -6,8 +6,8 @@ export const menuLinks = {
       description: '',
     },
     {
-      href: 'https://v1.dafidao.finance/earn',
-      title: 'Earn',
+      href: 'https://da-fi.io/streamgen',
+      title: 'Streamgen',
       description: '',
     },
   ],
@@ -26,12 +26,12 @@ export const menuLinks = {
   //   title: 'yUSD',
   //   description: 'Stable coin index',
   // },
-  // products: [
-  //   {
-  //     href: '/vaults',
-  //     title: 'yVaults',
-  //     description: 'Deposit and earn',
-  //   },
+  products: [
+     {
+       href: '/vaults',
+       title: 'yVaults',
+       description: 'Deposit and earn',
+     }, 
   //   {
   //     href: '/cover',
   //     title: 'yCover',

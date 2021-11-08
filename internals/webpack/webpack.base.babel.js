@@ -12,7 +12,7 @@ const ManifestPlugin = new WebpackPwaManifest({
   short_name: 'entropyx',
   description: 'Put your assets to work.',
   background_color: '#fafafa',
-  theme_color: '#b1624d',
+  theme_color: '#3FBFBF',
   inject: true,
   ios: true,
   iconPath: 'icon_192x192.png',

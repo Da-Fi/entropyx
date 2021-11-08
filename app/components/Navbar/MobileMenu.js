@@ -112,7 +112,7 @@ const MobileMenu = ({ close }) => {
         height="66px"
       >
         <Link to="/" tw="no-underline mx-auto md:mx-0" onClick={close}>
-          <img src={DafiDaoLogo} alt="Yearn" width="110" />
+          <img src={DafiDaoLogo} alt="DafiDao" width="110" />
         </Link>
         <CloseIcon onClick={close} />
       </StyledNav>

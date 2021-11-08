@@ -94,10 +94,10 @@ function Footer() {
             >
               <Logo src={GithubLogo} alt="" />
             </a>
-            <a href="https://discord.com/invite/6PNv2nF" target="_blank">
+            <a href="https://discord.gg/W5aUBpy4" target="_blank">
               <InvertedLogo src={DiscordLogo} alt="" />
             </a>
-            <a href="https://medium.com/Da-Fi" target="_blank">
+            <a href="https://medium.com/robert-mourey-jr" target="_blank">
               <InvertedLogo src={MediumLogo} alt="" />
             </a>
           </TopRight>
@@ -105,7 +105,7 @@ function Footer() {
         <Bottom>
           <BottomLeft>
             <a
-              href="https://dashboard.alchemyapi.io/signup?referral=c642981b-19e0-45e9-a169-0b80b633992b"
+              href="https://alchemy.com/?r=2195a515-4a6b-4e7f-ba53-8cfa9ce206b0"
               target="_blank"
             >
               <Logo src={AlchemyLogo} alt="" />

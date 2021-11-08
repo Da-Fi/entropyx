@@ -6,7 +6,7 @@ import Text from 'components/Text';
 import { useSelector } from 'react-redux';
 import { selectBackscratcherVault } from 'containers/App/selectors';
 
-import LogoImg from '../../../images/Splash/logo.svg';
+import LogoImg from '../../../images/transparent_color_text.png';
 
 const Logo = styled.div`
   img {
@@ -58,7 +58,7 @@ export const Backscratcher = () => {
       </Logo>
 
       <Text bold fontSize={[44, 61]} center lineHeight="1" mt={30} mx={[5, 0]}>
-        Maximize your CRV Rewards
+        High Conurrency Polygon Cardano Swaps
       </Text>
       <Text large center my={30} mx={[80, 0]}>
         {boostText}

@@ -11,7 +11,7 @@ import Text from 'components/Text';
 import Box from 'components/Box';
 import Icon from 'components/Icon';
 import { Link } from 'react-router-dom';
-import DafiDaoLogo from 'images/dafidao-logo.svg';
+import DafiDaoLogo from 'images/print_transparent.svg';
 import ButtonFilled from 'components/ButtonFilled';
 import MobileMenu from './MobileMenu';
 import { menuLinks, menuLinksMeta } from './menuLinks';

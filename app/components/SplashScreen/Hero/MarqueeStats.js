@@ -12,13 +12,13 @@ export const MarqueStats = () => {
   //   {},
   // );
   const cgstate = useAsync(
-    () => request('https://api.coingecko.com/api/v3/coins/dafidao-finance'),
+    () => request('https://api.coingecko.com/api/v3/coins/yearn-finance'),
     [],
     {},
   );
 
   const tvlstate = useAsync(
-    () => request('https://api.dafidao.tools/tvl'),
+    () => request('https://api.yearn.tools/tvl'),
     [],
     {},
   );
