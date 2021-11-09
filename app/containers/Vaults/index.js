@@ -406,14 +406,14 @@ const Vaults = (props) => {
 
           <BetaText>
             We recently launched our new website at{' '}
-            <a href="https://https://beta.da-fi.io" target="_blank">
+            <a href="https://beta.da-fi.io" target="_blank">
               https://beta.da-fi.io
             </a>
             . Click here to test it out, including our new Vaults and Iron Bank
             on Fantom.
           </BetaText>
 
-          <BetaRightArrow href="https://https://beta.da-fi.io" target="_blank">
+          <BetaRightArrow href="https://beta.da-fi.io" target="_blank">
             <BetaStyledIcon type="chevronRight" />
           </BetaRightArrow>
         </BetaBanner>
