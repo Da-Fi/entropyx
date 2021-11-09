@@ -457,22 +457,22 @@ const getAllowanceSubscription = (
   ],
 });
 
-//function konamiWatcher() {
-//  return eventChannel((emitter) => {
-//    KonamiCode(() => emitter(0));
-//    return () => {};
-//  });
-// }
+function konamiWatcher() {
+return eventChannel((emitter) => {
+KonamiCode(() => emitter(0));
+return () => {};
+  });
+}
 
-//function* startKonamiWatcher() {
-//  const chan = yield call(konamiWatcher);
-//  while (true) {
-//    yield take(chan);
-//    yield put(unlockDevMode());
-//    yield put(setThemeMode(DARK_MODE));
-//    runMatrix();
-//  }
-//}
+function* startKonamiWatcher() {
+  const chan = yield call(konamiWatcher);
+  while (true) {
+   yield take(chan);
+   yield put(unlockDevMode());
+   yield put(setThemeMode(DARK_MODE));
+    runMatrix();
+  }
+}
 
 function checkTx(notifyEmitter) {
   return eventChannel((emitter) => {
