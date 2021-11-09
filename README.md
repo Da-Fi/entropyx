@@ -1,8 +1,10 @@
 <span>
-    <img align="right" src="app/images/icon-transparent_color_text.png" height="100" />
+    <img align="right" src="app/images/transparent_color_text.png" height="100" />
 </span>
 
-# Da-Fi.entropyx
+# Da-Fi DAO EntropyX
+# Special thanks to yearn.finance & Andre Cronje, IOHK, Emurgo, & Cardano community!
+# Da-Fi DAO is developing a widely interoperable data agnostic nueral network and arbitrage framework. Da-Fi DAO's Nueral Arbitrage Valve (NAV) will allow users to stream arbitrage opportunites as they occur much like tickers stream sports, news, & stock information. In order to "open the valve", a user must deposit DA-FI token  to begin the stream 
 
 [![Production Build Deployment](https://github.com/Da-Fi/entropyx/workflows/Production%20Build%20Deployment/badge.svg)](https://github.com/Da-Fi/entropyx/actions?query=workflow%3A%22Production+Build+Deployment%22)
 [![Styled With Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://prettier.io/)
